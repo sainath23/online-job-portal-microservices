@@ -8,9 +8,10 @@
         <version>2.1.7.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.doitgeek</groupId>
+    <groupId>com.doitgeek.ojp</groupId>
     <artifactId>online-job-portal-microservices</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>online-job-portal-microservices</name>
     <description>Online Job Portal Microservices</description>
 
