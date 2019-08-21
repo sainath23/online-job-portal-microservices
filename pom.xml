@@ -5,6 +5,7 @@
     <modules>
         <module>discovery-server</module>
         <module>user-management-service</module>
+        <module>seeker-profile-service</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
