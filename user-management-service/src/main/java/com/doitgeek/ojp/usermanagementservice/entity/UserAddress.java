@@ -1,5 +1,7 @@
 package com.doitgeek.ojp.usermanagementservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,7 +12,7 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "user_location")
+@Table(name = "user_address")
 public class UserAddress implements Serializable {
 
     private static final long serialVersionUID = -1093777285235568118L;
@@ -34,6 +36,7 @@ public class UserAddress implements Serializable {
     @Column(name = "country")
     private String country;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "user_account_id", insertable = false, updatable = false)
     @MapsId

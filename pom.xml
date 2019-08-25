@@ -6,6 +6,7 @@
         <module>discovery-server</module>
         <module>user-management-service</module>
         <module>seeker-profile-service</module>
+        <module>api-gateway</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -58,6 +59,19 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!-- Third party -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.9.2</version>
         </dependency>
     </dependencies>
 

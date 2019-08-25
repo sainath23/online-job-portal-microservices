@@ -1,5 +1,7 @@
 package com.doitgeek.ojp.usermanagementservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -26,10 +28,20 @@ public class UserLog implements Serializable {
     @Column(name = "last_job_apply_date")
     private Date lastJobApplyDate;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "user_account_id", insertable = false, updatable = false)
     @MapsId
     private UserAccount userAccount;
+
+    public UserLog() {
+    }
+
+    public UserLog(Date lastLoginDate, Date lastJobApplyDate, UserAccount userAccount) {
+        this.lastLoginDate = lastLoginDate;
+        this.lastJobApplyDate = lastJobApplyDate;
+        this.userAccount = userAccount;
+    }
 
     public Long getUserAccountId() {
         return userAccountId;

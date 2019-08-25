@@ -10,4 +10,5 @@ public interface UserTypeService {
     List<UserType> findAll();
     UserType save(UserType userType);
     void deleteById(Long id);
+    Optional<UserType> findByUserTypeName(String userTypeName);
 }

@@ -1,12 +1,14 @@
 package com.doitgeek.ojp.usermanagementservice.entity;
 
-import javax.persistence.CascadeType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.io.Serializable;
@@ -24,6 +26,12 @@ public class UserAccount implements Serializable {
     @Column(name = "user_type_id")
     private Long userTypeId;
 
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
+
     @Column(name = "email")
     private String email;
 
@@ -39,8 +47,8 @@ public class UserAccount implements Serializable {
     @Column(name = "is_active")
     private Character isActive;
 
-    @Column(name = "contact_number")
-    private String contactNumber;
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
     @Column(name = "sms_notification_active")
     private Character smsNotificationActive;
@@ -54,14 +62,17 @@ public class UserAccount implements Serializable {
     @Column(name = "registration_date")
     private Date registrationDate;
 
-    @OneToOne(mappedBy = "userAccount", cascade = CascadeType.PERSIST)
+    @JsonIgnore
+    @OneToOne(mappedBy = "userAccount")
     private UserAddress userAddress;
 
-    @OneToOne(mappedBy = "userAccount", cascade = CascadeType.PERSIST)
+    @JsonIgnore
+    @OneToOne(mappedBy = "userAccount")
     private UserLog userLog;
 
-    @OneToOne
-    @JoinColumn(name = "user_type_id")
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "user_type_id", insertable = false, updatable = false)
     private UserType userType;
 
     public Long getId() {
@@ -78,6 +89,22 @@ public class UserAccount implements Serializable {
 
     public void setUserTypeId(Long userTypeId) {
         this.userTypeId = userTypeId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -120,12 +147,12 @@ public class UserAccount implements Serializable {
         this.isActive = isActive;
     }
 
-    public String getContactNumber() {
-        return contactNumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setContactNumber(String contactNumber) {
-        this.contactNumber = contactNumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public Character getSmsNotificationActive() {
@@ -174,5 +201,36 @@ public class UserAccount implements Serializable {
 
     public void setUserLog(UserLog userLog) {
         this.userLog = userLog;
+    }
+
+    public UserType getUserType() {
+        return userType;
+    }
+
+    public void setUserType(UserType userType) {
+        this.userType = userType;
+    }
+
+    @Override
+    public String toString() {
+        return "UserAccount{" +
+                "id=" + id +
+                ", userTypeId=" + userTypeId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", gender=" + gender +
+                ", isActive=" + isActive +
+                ", contactNumber='" + phoneNumber + '\'' +
+                ", smsNotificationActive=" + smsNotificationActive +
+                ", emailNotificationActive=" + emailNotificationActive +
+                ", userImagePath='" + userImagePath + '\'' +
+                ", registrationDate=" + registrationDate +
+                ", userAddress=" + userAddress +
+                ", userLog=" + userLog +
+                ", userType=" + userType +
+                '}';
     }
 }

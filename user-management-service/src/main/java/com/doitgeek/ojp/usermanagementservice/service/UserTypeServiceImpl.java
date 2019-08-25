@@ -4,6 +4,7 @@ import com.doitgeek.ojp.usermanagementservice.entity.UserType;
 import com.doitgeek.ojp.usermanagementservice.repository.UserTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -36,5 +37,11 @@ public class UserTypeServiceImpl implements UserTypeService {
     @Override
     public void deleteById(Long id) {
         userTypeRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional<UserType> findByUserTypeName(String userTypeName) {
+        return userTypeRepository.findByUserTypeName(userTypeName);
     }
 }
