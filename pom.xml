@@ -8,6 +8,7 @@
         <module>seeker-profile-service</module>
         <module>api-gateway</module>
         <module>company-profile-service</module>
+        <module>job-post-management</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
