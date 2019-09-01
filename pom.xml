@@ -7,6 +7,7 @@
         <module>user-management-service</module>
         <module>seeker-profile-service</module>
         <module>api-gateway</module>
+        <module>company-profile-service</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
