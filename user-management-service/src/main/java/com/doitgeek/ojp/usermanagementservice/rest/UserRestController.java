@@ -8,6 +8,8 @@ import com.doitgeek.ojp.usermanagementservice.model.ApiResponseModel;
 import com.doitgeek.ojp.usermanagementservice.model.UserRegistrationModel;
 import com.doitgeek.ojp.usermanagementservice.service.UserAccountService;
 import com.doitgeek.ojp.usermanagementservice.service.UserAddressService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +29,7 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserRestController {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserRestController.class);
     private UserAccountService userAccountService;
     private UserAddressService userAddressService;
 

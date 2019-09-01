@@ -24,5 +24,9 @@ zuul:
       path: /users/**
       serviceId: user-management-service
       stripPrefix: false
+    seeker-profile-service:
+      path: /seekers/**
+      serviceId: seeker-profile-service
+      stripPrefix: false
 logging:
   file: E:/api-gateway-log.log
